@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+	
+	// начальная менюшка
+	cout << "\x1b[96m~~~~~~~| Добро пожаловать в игру - Геометрические Фигуры^_^ |~~~~~~~\x1b[00m\n";
+	cout << "\x1b[92m|1| Линия\x1b[00m\n|+|Выберите Фигуру: ";
+	int numberfigure;
+	cin >> numberfigure;
+	
+	system("cls");
+
+	// выбор типа фигуры
+	cout << "\x1b[96m~~~~~~~| Линия |~~~~~~~\x1b[00m\n";
+	cout << "\x1b[92m|1| Горизонтальная\n|2| Вертикальная\x1b[00m\n|+|Выберите тип линии: ";
+	int typefigure;
+	cin >> typefigure;
+
+	//длина и символ линии
+	int length;
+	cout << "\x1b[94mКакую длину линии вы хотите: \x1b[00m"; cin >> length;
+	char symbol;
+	cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol; 
+
+	//делаем линию
+	int circle = 0;
+	cout << "\x1b[96m~~~~~~~| ^_^ Результат ^_^ |~~~~~~~\x1b[00m\n";
+	if (typefigure == 1) 
+	{
+		while (circle != length) 
+		{
+			cout << symbol;
+			circle++;
+		}		
+	}
+	else if (typefigure == 2)
+	{
+		while (circle != length)
+		{
+			cout << symbol << "\n";
+			circle++;
+		}
+	}
+	int _; cin >> _; 
+}
