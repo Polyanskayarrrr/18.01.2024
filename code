@@ -1,48 +1,122 @@
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 
 int main()
 {
 	setlocale(0, "");
-	
+	int typefigure;
+	char symbol;
 	// начальная менюшка
 	cout << "\x1b[96m~~~~~~~| Добро пожаловать в игру - Геометрические Фигуры^_^ |~~~~~~~\x1b[00m\n";
-	cout << "\x1b[92m|1| Линия\x1b[00m\n|+|Выберите Фигуру: ";
+	cout << "\x1b[92m|1| Линия\x1b[00m\n\x1b[92m|2| Квадрат\x1b[00m\n|+|Выберите Фигуру: ";
 	int numberfigure;
 	cin >> numberfigure;
-	
+
 	system("cls");
+	if (numberfigure == 1) 
+	{	
+		type:
+		// выбор типа фигуры
+		cout << "\x1b[96m~~~~~~~| Линия |~~~~~~~\x1b[00m\n";
+		cout << "\x1b[92m|1| Горизонтальная\n|2| Вертикальная\x1b[00m\n|+|Выберите тип линии: ";
+		cin >> typefigure;
+		Sleep(500);
+		system("cls");
 
-	// выбор типа фигуры
-	cout << "\x1b[96m~~~~~~~| Линия |~~~~~~~\x1b[00m\n";
-	cout << "\x1b[92m|1| Горизонтальная\n|2| Вертикальная\x1b[00m\n|+|Выберите тип линии: ";
-	int typefigure;
-	cin >> typefigure;
-
-	//длина и символ линии
-	int length;
-	cout << "\x1b[94mКакую длину линии вы хотите: \x1b[00m"; cin >> length;
-	char symbol;
-	cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol; 
-
-	//делаем линию
-	int circle = 0;
-	cout << "\x1b[96m~~~~~~~| ^_^ Результат ^_^ |~~~~~~~\x1b[00m\n";
-	if (typefigure == 1) 
-	{
-		while (circle != length) 
+		if (typefigure > 2)
 		{
-			cout << symbol;
-			circle++;
-		}		
-	}
-	else if (typefigure == 2)
-	{
-		while (circle != length)
+			cout << "Такого типа фигуры не существует, через секунду попробуйте еще раз!";
+			Sleep(1000);
+			system("cls");
+			goto type;
+		}
+
+		//длина и символ линии
+		int length;
+		cout << "\x1b[94mКакую длину линии вы хотите: \x1b[00m"; cin >> length;
+		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol;
+		Sleep(500);
+		system("cls");
+
+		//делаем линию
+		int circle = 0;
+		cout << "\x1b[96m~~~~~~~| ^_^ Результат ^_^ |~~~~~~~\x1b[00m\n";
+		if (typefigure == 1)
 		{
-			cout << symbol << "\n";
-			circle++;
+			while (circle != length)
+			{
+				cout << symbol;
+				circle++;
+			}
+		}
+		else if (typefigure == 2)
+		{
+			while (circle != length)
+			{
+				cout << symbol << "\n";
+				circle++;
+			}
 		}
 	}
-	int _; cin >> _; 
+	//квадрат
+	if (numberfigure == 2) 
+	{	
+		type1:
+		cout << "\x1b[96m~~~~~~~| Квадрат |~~~~~~~\x1b[00m\n";
+		cout << "\x1b[92m|1| Заполненный\n|2| Пустой\x1b[00m\n|+|Выберите тип линии: ";
+		cin >> typefigure;
+		Sleep(1000);
+		system("cls");
+
+		if (typefigure > 2)
+		{
+			cout << "Такого типа фигуры не существует, через секунду попробуйте еще раз!";
+			Sleep(1000);
+			system("cls");
+			goto type1;
+		}
+
+		int size;
+		cout << "\x1b[94mКакой размер квадрата вы хотите: \x1b[00m"; cin >> size;
+		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol;
+		Sleep(1000);
+		system("cls");
+
+		cout << "\x1b[96m~~~~~~~| ^_^ Результат ^_^ |~~~~~~~\x1b[00m\n";
+		if (typefigure == 1)
+		{
+			for (int y = 0; y < size; y++)
+			{
+				for (int x = 0; x < size; x++) 
+				{
+					
+						cout << symbol << " ";
+					
+					
+				}
+				cout << endl;
+			}
+		}
+		if (typefigure == 2)
+		{
+			for (int y = 0; y < size; y++)
+			{
+				for (int x = 0; x < size; x++)
+				{
+
+					if (x == 0 || x == size - 1 || y == 0 || y == size - 1)
+					{
+						cout  << symbol<< " ";
+					}
+					else
+					{
+						cout << "  ";
+					}
+				}
+				cout << endl;
+			}
+		}
+	}
+	int _; cin >> _;
 }
