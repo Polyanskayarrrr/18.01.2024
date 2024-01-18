@@ -10,7 +10,7 @@ int main()
 	int size;
 	// начальная менюшка
 	cout << "\x1b[96m~~~~~~~| Добро пожаловать в игру - Геометрические Фигуры^_^ |~~~~~~~\x1b[00m\n";
-	cout << "\x1b[92m|1| Линия\x1b[00m\n\x1b[92m|2| Квадрат\x1b[00m\n\x1b[92m|3| Прямоугольник\x1b[00m\n\x1b[92m|4| Треугольник\x1b[00m\n\x1b[92m|5| Решётка\x1b[00m\n|+|Выберите Фигуру: ";
+	cout << "\x1b[92m|1| Линия\x1b[00m\n\x1b[92m|2| Квадрат\x1b[00m\n\x1b[92m|3| Прямоугольник\x1b[00m\n\x1b[92m|4| Треугольник\x1b[00m\n\x1b[92m|5| Решётка\x1b[00m\n\x1b[92m|6| Крестик\x1b[00m\n|+|Выберите Фигуру: ";
 	int numberfigure;
 	cin >> numberfigure;
 
@@ -78,7 +78,7 @@ int main()
 			goto type1;
 		}
 
-		
+
 		cout << "\x1b[94mКакой размер квадрата вы хотите: \x1b[00m"; cin >> size;
 		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol;
 		Sleep(1000);
@@ -255,7 +255,7 @@ int main()
 		cout << "\x1b[96m~~~~~~~| Решётка |~~~~~~~\x1b[00m\n\n";
 
 		cout << "\x1b[94mКакой размер решётки вы хотите: \x1b[00m"; cin >> size;
-		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol; 
+		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol;
 		Sleep(1000);
 		system("cls");
 		if (size % 2 == 0)
@@ -267,7 +267,7 @@ int main()
 		{
 			for (int x = 0; x < size; x++)
 			{
-				if (x % 2 == 1 || y % 2 == 1)  
+				if (x % 2 == 1 || y % 2 == 1)
 				{
 					cout << symbol << " ";
 				}
@@ -276,7 +276,37 @@ int main()
 					cout << "  ";
 				}
 			}
-			cout  << endl;
+			cout << endl;
+		}
+	}
+	if (numberfigure == 6)
+	{
+		cout << "\x1b[96m~~~~~~~| Крестик |~~~~~~~\x1b[00m\n\n";
+
+		cout << "\x1b[94mКакой размер крестика вы хотите: \x1b[00m"; cin >> size;
+		cout << "\x1b[94mКакой символ будем использовать: \x1b[00m"; cin >> symbol;
+		Sleep(1000);
+		system("cls");
+		if (size % 2 == 0)
+		{
+			size++;
+		}
+		cout << "\x1b[96m~~~~~~~| ^_^ Результат ^_^ |~~~~~~~\x1b[00m\n" << endl;
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				if (x == y || x + y == size - 1)
+				{
+					cout << symbol << " ";
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+			cout << endl;
+			
 		}
 	}
 	int _; cin >> _;
